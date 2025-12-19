@@ -10,7 +10,7 @@ describe('fields index exports', () => {
     cy.get('[data-testid="skeleton"]').should('be.visible')
   })
 
-  it('exports all 10 micro components', () => {
+  it('exports all 11 micro components', () => {
     cy.wrap(Fields.TextField).should('exist')
     cy.wrap(Fields.SelectField).should('exist')
     cy.wrap(Fields.DateField).should('exist')
@@ -21,6 +21,7 @@ describe('fields index exports', () => {
     cy.wrap(Fields.NumberField).should('exist')
     cy.wrap(Fields.RadioGroup).should('exist')
     cy.wrap(Fields.ThemeToggle).should('exist')
+    cy.wrap(Fields.Button).should('exist')
   })
 
   it('can render TextField from the index', () => {
@@ -49,5 +50,9 @@ describe('fields index exports', () => {
 
   it('can render RadioGroup from the index', () => {
     cy.mount(Fields.RadioGroup({ label: 'Test', options: [] }))
+  })
+
+  it('can render Button from the index', () => {
+    cy.mount(Fields.Button({ children: 'Test Button' }))
   })
 })

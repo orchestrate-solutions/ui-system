@@ -34,7 +34,19 @@ export function CheckboxField({
   }
 
   // Convert checked prop to boolean to handle form libraries that pass strings
-  // Convert checked prop to boolean to handle form libraries that pass strings\n  const isChecked = (() => {\n    if (checked === true) return true;\n    if (checked === false) return false;\n    if (typeof checked === 'string') {\n      const lower = checked.toLowerCase();\n      if (['true', 'on', 'yes', '1'].includes(lower)) return true;\n      if (['false', 'off', 'no', '0', ''].includes(lower)) return false;\n    }\n    if (typeof checked === 'number') {\n      return checked > 0;\n    }\n    return Boolean(checked);\n  })();
+  const isChecked = (() => {
+    if (checked === true) return true;
+    if (checked === false) return false;
+    if (typeof checked === 'string') {
+      const lower = checked.toLowerCase();
+      if (['true', 'on', 'yes', '1'].includes(lower)) return true;
+      if (['false', 'off', 'no', '0', ''].includes(lower)) return false;
+    }
+    if (typeof checked === 'number') {
+      return checked > 0;
+    }
+    return Boolean(checked);
+  })();
 
   return (
     <>

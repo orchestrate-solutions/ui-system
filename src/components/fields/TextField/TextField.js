@@ -1,0 +1,10 @@
+import { jsx as _jsx } from "react/jsx-runtime";
+import { TextField as MuiTextField } from '@mui/material';
+import { FieldSkeleton } from '../FieldSkeleton';
+export function TextField({ label, loading = false, ...props }) {
+    // Show skeleton while loading
+    if (loading) {
+        return _jsx(FieldSkeleton, { height: 56, width: "100%", showLabel: true });
+    }
+    return (_jsx(MuiTextField, { label: label, variant: "outlined", size: "medium", fullWidth: true, ...props }));
+}

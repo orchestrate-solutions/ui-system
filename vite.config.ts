@@ -9,20 +9,37 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'HybridUISystem',
-      fileName: 'index'
+      formats: ['es', 'cjs'],
+      fileName: (format) => `index.${format === 'es' ? 'mjs' : 'js'}`
     },
     rollupOptions: {
       external: ['react', 'react-dom', '@mui/material', '@mui/icons-material', '@emotion/react', '@emotion/styled'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          '@mui/material': 'MaterialUI',
-          '@mui/icons-material': 'MaterialUIIcons',
-          '@emotion/react': 'emotionReact',
-          '@emotion/styled': 'emotionStyled'
+      output: [
+        {
+          format: 'cjs',
+          entryFileNames: 'index.js',
+          globals: {
+            react: 'React',
+            'react-dom': 'ReactDOM',
+            '@mui/material': 'MaterialUI',
+            '@mui/icons-material': 'MaterialUIIcons',
+            '@emotion/react': 'emotionReact',
+            '@emotion/styled': 'emotionStyled'
+          }
+        },
+        {
+          format: 'es',
+          entryFileNames: 'index.mjs',
+          globals: {
+            react: 'React',
+            'react-dom': 'ReactDOM',
+            '@mui/material': 'MaterialUI',
+            '@mui/icons-material': 'MaterialUIIcons',
+            '@emotion/react': 'emotionReact',
+            '@emotion/styled': 'emotionStyled'
+          }
         }
-      }
+      ]
     }
   }
 })

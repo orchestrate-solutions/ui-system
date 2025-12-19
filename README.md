@@ -1,6 +1,6 @@
 # @hybrid/ui-system - Batteries-Included UI System
 
-**@hybrid/ui-system** provides a complete UI system with consistent dark theme and 10 micro components. One install gives you everything - theme + components for guaranteed visual and behavioral consistency.
+**@hybrid/ui-system** provides a complete UI system with consistent dark theme and 11 micro components. One install gives you everything - theme + components for guaranteed visual and behavioral consistency.
 
 ## Quick Start
 
@@ -25,7 +25,7 @@ export default function App() {
 
 ## Micro Components
 
-Use our 10 reusable micro components that automatically inherit the theme:
+Use our 11 reusable micro components that automatically inherit the theme:
 
 ```tsx
 import { TextField, SelectField, CheckboxField, ThemeToggle } from '@hybrid/ui-system';
@@ -50,6 +50,7 @@ export function MyForm() {
 
 ### Available Components
 
+- **Button** - Enhanced button with loading states
 - **TextField** - Text input with validation
 - **SelectField** - Dropdown selection
 - **DateField** - Date picker
@@ -67,7 +68,7 @@ export function MyForm() {
 ✅ **Consistent Behavior** - Same validation, error states, accessibility  
 ✅ **Easy Integration** - Drop-in replacement for standard MUI components  
 ✅ **Future-Proof** - Updates automatically benefit all applications  
-✅ **Well Tested** - 102 Cypress tests ensure reliability  
+✅ **Well Tested** - 120 Cypress tests ensure reliability  
 ✅ **Interactive Docs** - Storybook stories with live component playground  
 ✅ **Theme Customization** - Build your own theme, system ensures consistency  
 
@@ -79,4 +80,4 @@ Run interactive component documentation:
 npm run storybook
 ```
 
-All 10 components include stories showcasing different props, states, and edge cases.
+All 11 components include stories showcasing different props, states, and edge cases.

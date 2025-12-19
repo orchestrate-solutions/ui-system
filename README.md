@@ -6,7 +6,7 @@
 
 ### Install
 ```bash
-npm install github:JoshuaWink/hybrid-ui-system
+npm install github:orchestrate-solutions/ui-system
 ```
 
 ### Basic Usage

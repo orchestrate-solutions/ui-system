@@ -4,7 +4,7 @@
   "description": "Batteries-Included UI System with consistent dark theme and 10 micro components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "github:JoshuaWink/hybrid-ui-system",
+  "repository": "github:orchestrate-solutions/ui-system",
   "keywords": [
     "ui",
     "theme",

@@ -6,5 +6,5 @@
  *
  * @packageDocumentation
  */
-export { hybridTheme } from './theme';
+export { hybridTheme, lightTheme, darkTheme, createHybridTheme, type HybridThemeOptions } from './theme';
 export * from './components/fields';

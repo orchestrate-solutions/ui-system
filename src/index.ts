@@ -7,8 +7,11 @@
  * @packageDocumentation
  */
 
-// Export the theme
-export { hybridTheme } from './theme';
+// Re-export theme items individually to avoid import issues
+export { hybridTheme } from './theme/index';
+export { lightTheme } from './theme/index';
+export { darkTheme } from './theme/index';
+export { createHybridTheme, type HybridThemeOptions } from './theme/index';
 
 // Export all field components
 export * from './components/fields';

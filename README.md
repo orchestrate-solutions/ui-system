@@ -23,31 +23,32 @@ export default function App() {
 }
 ```
 
-## With Micro Components
+## Micro Components
 
-For consistent forms across all applications, use our 9 reusable micro components that automatically inherit the theme when your app is wrapped with `ThemeProvider`.
+Use our 10 reusable micro components that automatically inherit the theme:
 
-### Usage
 ```tsx
-import { TextField, SelectField, CheckboxField, ThemeToggle, hybridTheme } from '@hybrid/ui-system';
+import { TextField, SelectField, CheckboxField, ThemeToggle } from '@hybrid/ui-system';
 
 export function MyForm() {
   return (
-    <TextField label="Name" required />
-    <SelectField 
-      label="Type" 
-      options={[
-        { value: 'a', label: 'Option A' },
-        { value: 'b', label: 'Option B' }
-      ]} 
-    />
-    <CheckboxField label="Agree to terms" />
-    <ThemeToggle label="Theme" />
+    <>
+      <TextField label="Name" required />
+      <SelectField
+        label="Type"
+        options={[
+          { value: 'a', label: 'Option A' },
+          { value: 'b', label: 'Option B' }
+        ]}
+      />
+      <CheckboxField label="Agree to terms" />
+      <ThemeToggle label="Theme" />
+    </>
   );
 }
 ```
 
-## Available Micro Components
+### Available Components
 
 - **TextField** - Text input with validation
 - **SelectField** - Dropdown selection
@@ -62,35 +63,20 @@ export function MyForm() {
 
 ## Benefits
 
-✅ **Consistent Appearance** - Same colors, fonts, spacing across all apps  
+✅ **Consistent Design** - Same colors, fonts, spacing across all apps  
 ✅ **Consistent Behavior** - Same validation, error states, accessibility  
 ✅ **Easy Integration** - Drop-in replacement for standard MUI components  
 ✅ **Future-Proof** - Updates automatically benefit all applications  
-✅ **Well Tested** - Comprehensive testing ensures reliability  
-✅ **Regression Testing** - Storybook stories catch visual changes immediately  
-✅ **Interactive Documentation** - Live component playground for all variants  
+✅ **Well Tested** - 102 Cypress tests ensure reliability  
+✅ **Interactive Docs** - Storybook stories with live component playground  
 ✅ **Theme Customization** - Build your own theme, system ensures consistency  
-✅ **Cypress Testing** - Comprehensive component testing ensures reliability  
 
-## Storybook Testing
+## Storybook
 
-Comprehensive Storybook stories have been created for all 10 micro components, providing interactive documentation and visual regression testing.
+Run interactive component documentation:
 
-### Available Stories
-- **TextField** - Text input with validation states
-- **SelectField** - Dropdown selection with options
-- **DateField** - Date picker input
-- **CheckboxField** - Checkbox with agreement states
-- **TextareaField** - Multi-line text input
-- **FileField** - File upload with validation
-- **PasswordField** - Password input with strength indicators
-- **NumberField** - Numeric input with min/max/step
-- **RadioGroup** - Radio button groups
-- **ThemeToggle** - Interactive theme switching with live preview
-
-### Running Storybook
 ```bash
 npm run storybook
 ```
 
-Each story includes multiple variants showcasing different props, states, and edge cases for comprehensive testing. Loading states are prominently displayed with descriptive labels to demonstrate skeleton behavior.
+All 10 components include stories showcasing different props, states, and edge cases.

@@ -17,6 +17,21 @@ describe('CheckboxField', () => {
     cy.get('input[type="checkbox"]').should('be.checked')
   })
 
+  it('is checked when checked prop is string "true"', () => {
+    cy.mount(<CheckboxField label="Test Label" checked="true" />)
+    cy.get('input[type="checkbox"]').should('be.checked')
+  })
+
+  it('is checked when checked prop is string "on"', () => {
+    cy.mount(<CheckboxField label="Test Label" checked="on" />)
+    cy.get('input[type="checkbox"]').should('be.checked')
+  })
+
+  it('is not checked when checked prop is false', () => {
+    cy.mount(<CheckboxField label="Test Label" checked={false} />)
+    cy.get('input[type="checkbox"]').should('not.be.checked')
+  })
+
   it('calls onChange when clicked', () => {
     const onChange = cy.stub().as('onChange')
     cy.mount(<CheckboxField label="Test Label" onChange={onChange} />)

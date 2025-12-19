@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Package Usage Test</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@mui/material/umd/material-ui.development.js"></script>
+  <script src="https://unpkg.com/@emotion/react@11/dist/emotion-react.umd.min.js"></script>
+  <script src="https://unpkg.com/@emotion/styled@11/dist/emotion-styled.umd.min.js"></script>
+  <script src="https://unpkg.com/@mui/icons-material/umd/material-icons.development.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module">
+    // Simulate importing from the built package
+    import { hybridTheme, TextField, SelectField, CheckboxField, ThemeToggle } from '/dist/index.mjs';
+    
+    const { ThemeProvider } = MaterialUI;
+    const { createRoot } = ReactDOM;
+    
+    function TestApp() {
+      return React.createElement(ThemeProvider, { theme: hybridTheme }, 
+        React.createElement('div', { 'data-testid': 'theme-provider' },
+          React.createElement('h1', null, 'Package Usage Test'),
+          React.createElement(TextField, { 
+            label: 'Test Field',
+            'data-testid': 'textfield'
+          }),
+          React.createElement(SelectField, { 
+            label: 'Test Select',
+            options: [{ value: 'a', label: 'Option A' }],
+            'data-testid': 'selectfield'
+          }),
+          React.createElement(CheckboxField, { 
+            label: 'Test Checkbox',
+            'data-testid': 'checkboxfield'
+          }),
+          React.createElement(ThemeToggle, { 
+            label: 'Test Theme',
+            'data-testid': 'themetoggle'
+          })
+        )
+      );
+    }
+    
+    const root = createRoot(document.getElementById('root'));
+    root.render(React.createElement(TestApp));
+  </script>
+</body>
+</html>

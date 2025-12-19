@@ -1,47 +1,7 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, Theme } from '@mui/material/styles';
 
-export const hybridTheme = createTheme({
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: '#1976d2',
-      light: '#42a5f5',
-      dark: '#1565c0',
-    },
-    secondary: {
-      main: '#dc004e',
-      light: '#f73378',
-      dark: '#9a0036',
-    },
-    success: {
-      main: '#4caf50',
-      light: '#81c784',
-      dark: '#388e3c',
-    },
-    warning: {
-      main: '#ff9800',
-      light: '#ffb74d',
-      dark: '#f57c00',
-    },
-    error: {
-      main: '#f44336',
-      light: '#ef5350',
-      dark: '#d32f2f',
-    },
-    info: {
-      main: '#2196f3',
-      light: '#64b5f6',
-      dark: '#1976d2',
-    },
-    background: {
-      default: '#0d1117',
-      paper: '#161b22',
-    },
-    text: {
-      primary: '#e6edf3',
-      secondary: '#8b949e',
-    },
-  },
+// Base theme configuration shared between light and dark
+const baseTheme = {
   typography: {
     fontFamily: [
       '-apple-system',
@@ -116,7 +76,7 @@ export const hybridTheme = createTheme({
     },
     MuiTextField: {
       defaultProps: {
-        variant: 'outlined',
+        variant: 'outlined' as const,
       },
     },
     MuiPaper: {
@@ -127,6 +87,155 @@ export const hybridTheme = createTheme({
       },
     },
   },
+};
+
+// Light theme
+export const lightTheme = createTheme({
+  ...baseTheme,
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#1976d2',
+      light: '#42a5f5',
+      dark: '#1565c0',
+    },
+    secondary: {
+      main: '#dc004e',
+      light: '#f73378',
+      dark: '#9a0036',
+    },
+    success: {
+      main: '#4caf50',
+      light: '#81c784',
+      dark: '#388e3c',
+    },
+    warning: {
+      main: '#ff9800',
+      light: '#ffb74d',
+      dark: '#f57c00',
+    },
+    error: {
+      main: '#f44336',
+      light: '#ef5350',
+      dark: '#d32f2f',
+    },
+    info: {
+      main: '#2196f3',
+      light: '#64b5f6',
+      dark: '#1976d2',
+    },
+    background: {
+      default: '#ffffff',
+      paper: '#f5f5f5',
+    },
+    text: {
+      primary: '#1a1a1a',
+      secondary: '#666666',
+    },
+  },
 });
+
+// Dark theme (hybrid theme)
+export const darkTheme = createTheme({
+  ...baseTheme,
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#1976d2',
+      light: '#42a5f5',
+      dark: '#1565c0',
+    },
+    secondary: {
+      main: '#dc004e',
+      light: '#f73378',
+      dark: '#9a0036',
+    },
+    success: {
+      main: '#4caf50',
+      light: '#81c784',
+      dark: '#388e3c',
+    },
+    warning: {
+      main: '#ff9800',
+      light: '#ffb74d',
+      dark: '#f57c00',
+    },
+    error: {
+      main: '#f44336',
+      light: '#ef5350',
+      dark: '#d32f2f',
+    },
+    info: {
+      main: '#2196f3',
+      light: '#64b5f6',
+      dark: '#1976d2',
+    },
+    background: {
+      default: '#0d1117',
+      paper: '#161b22',
+    },
+    text: {
+      primary: '#e6edf3',
+      secondary: '#8b949e',
+    },
+  },
+});
+
+// Default hybrid theme (dark theme for backward compatibility)
+export const hybridTheme = darkTheme;
+
+// Theme creation utility for custom themes
+export interface HybridThemeOptions {
+  mode?: 'light' | 'dark';
+  primaryColor?: string;
+  secondaryColor?: string;
+  backgroundColor?: string;
+  paperColor?: string;
+}
+
+export function createHybridTheme(options: HybridThemeOptions = {}): Theme {
+  const {
+    mode = 'dark',
+    primaryColor,
+    secondaryColor,
+    backgroundColor,
+    paperColor,
+  } = options;
+
+  const basePalette = mode === 'light' ? lightTheme.palette : darkTheme.palette;
+
+  return createTheme({
+    ...baseTheme,
+    palette: {
+      ...basePalette,
+      ...(primaryColor && {
+        primary: {
+          main: primaryColor,
+          light: primaryColor,
+          dark: primaryColor,
+        },
+      }),
+      ...(secondaryColor && {
+        secondary: {
+          main: secondaryColor,
+          light: secondaryColor,
+          dark: secondaryColor,
+        },
+      }),
+      ...(backgroundColor && {
+        background: {
+          ...basePalette.background,
+          default: backgroundColor,
+        },
+      }),
+      ...(paperColor && {
+        background: {
+          ...basePalette.background,
+          paper: paperColor,
+        },
+      }),
+    },
+  });
+}
 
 export default hybridTheme;

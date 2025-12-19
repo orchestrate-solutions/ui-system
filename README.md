@@ -12,15 +12,34 @@ npm install github:orchestrate-solutions/ui-system
 ### Basic Usage
 ```tsx
 import { ThemeProvider } from '@mui/material/styles';
-import { hybridTheme } from '@hybrid/ui-system';
+import { lightTheme, darkTheme, hybridTheme } from '@hybrid/ui-system';
 
 export default function App() {
+  const [isDark, setIsDark] = useState(true);
+
   return (
-    <ThemeProvider theme={hybridTheme}>
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <YourApp />
     </ThemeProvider>
   );
 }
+```
+
+## Advanced Usage
+
+### Custom Themes
+Create your own themes with custom colors:
+
+```tsx
+import { createHybridTheme } from '@hybrid/ui-system';
+
+const customTheme = createHybridTheme({
+  mode: 'dark',
+  primaryColor: '#ff6b35',
+  secondaryColor: '#f7931e',
+  backgroundColor: '#1a1a2e',
+  paperColor: '#16213e',
+});
 ```
 
 ## Micro Components
@@ -46,6 +65,23 @@ export function MyForm() {
     </>
   );
 }
+```
+
+## Advanced Usage
+
+### Custom Themes
+Create your own themes with custom colors:
+
+```tsx
+import { createHybridTheme } from '@hybrid/ui-system';
+
+const customTheme = createHybridTheme({
+  mode: 'dark',
+  primaryColor: '#ff6b35',
+  secondaryColor: '#f7931e',
+  backgroundColor: '#1a1a2e',
+  paperColor: '#16213e',
+});
 ```
 
 ### Available Components

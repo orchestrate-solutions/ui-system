@@ -29,7 +29,7 @@ For consistent forms across all applications, use our 9 reusable micro component
 
 ### Usage
 ```tsx
-import { TextField, SelectField, CheckboxField, hybridTheme } from '@hybrid/ui-system';
+import { TextField, SelectField, CheckboxField, ThemeToggle, hybridTheme } from '@hybrid/ui-system';
 
 export function MyForm() {
   return (
@@ -42,6 +42,7 @@ export function MyForm() {
       ]} 
     />
     <CheckboxField label="Agree to terms" />
+    <ThemeToggle label="Theme" />
   );
 }
 ```
@@ -57,6 +58,7 @@ export function MyForm() {
 - **PasswordField** - Password input
 - **NumberField** - Numeric input
 - **RadioGroup** - Radio buttons
+- **ThemeToggle** - Interactive theme switcher (light/dark mode)
 
 ## Benefits
 
@@ -84,6 +86,7 @@ Comprehensive Storybook stories have been created for all 10 micro components, p
 - **PasswordField** - Password input with strength indicators
 - **NumberField** - Numeric input with min/max/step
 - **RadioGroup** - Radio button groups
+- **ThemeToggle** - Interactive theme switching with live preview
 
 ### Running Storybook
 ```bash

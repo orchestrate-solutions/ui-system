@@ -1,5 +1,7 @@
 # @hybrid/ui-system - Batteries-Included UI System
 
+[![CI](https://github.com/orchestrate-solutions/ui-system/actions/workflows/ci.yml/badge.svg)](https://github.com/orchestrate-solutions/ui-system/actions/workflows/ci.yml)
+
 **@hybrid/ui-system** provides a complete UI system with consistent dark theme and 11 micro components. One install gives you everything - theme + components for guaranteed visual and behavioral consistency.
 
 ## Quick Start
@@ -117,3 +119,32 @@ npm run storybook
 ```
 
 All 11 components include stories showcasing different props, states, and edge cases.
+
+## Development
+
+### Local Testing with GitHub Actions
+
+Test the CI pipeline locally using GitHub's `act` tool:
+
+```bash
+# Install act (if not already installed)
+brew install act
+
+# Run the CI workflow locally
+act -j test --matrix node-version:20.x
+
+# Run all jobs
+act
+```
+
+### Testing Strategy
+
+- **121 Cypress Component Tests** - Comprehensive coverage of all components and themes
+- **TypeScript Type Checking** - Ensures type safety across the codebase
+- **Build Verification** - Validates that the library builds correctly and exports are available
+- **Storybook Build** - Ensures documentation builds without issues
+- **Cross-Platform Testing** - Tests across Node.js 18.x, 20.x, and 22.x
+
+### Export Validation
+
+The test suite includes comprehensive validation of package exports to prevent issues like missing theme exports that could break Storybook or consumer applications.

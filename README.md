@@ -70,7 +70,7 @@ export function MyForm() {
 ✅ **Regression Testing** - Storybook stories catch visual changes immediately  
 ✅ **Interactive Documentation** - Live component playground for all variants  
 ✅ **Theme Customization** - Build your own theme, system ensures consistency  
-✅ **React Testing Library** - Perfect for unit testing and regression testing  
+✅ **Cypress Testing** - Comprehensive component testing ensures reliability  
 
 ## Storybook Testing
 
